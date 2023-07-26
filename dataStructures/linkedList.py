@@ -13,26 +13,39 @@ class LinkedList:
     def insertAtBeginning(self, data):
         node = Node(data, self.head)
         self.head = node
-        print(self.head)
+        # print(self.head)
 
-    def print(self):
+    def insertAtEnd(self, data):
+        node = Node(data)
+        itr = self.head
+        while itr.next:
+            itr = itr.next
+        itr.next = node
+
+    def display(self):
         if self.head is None:
             print("Empty")
 
         itr = self.head
+        # print(itr.data)
         llstr = ''
 
         while itr:
-            llstr += str(itr.data) + '> '
+            if itr.next == None:
+                llstr += str(itr.data)
+                break
+            llstr += str(itr.data) + ' -> '
             itr = itr.next
 
         print(llstr)
 
 
+
+
 if __name__ == '__main__':
     ll = LinkedList()
-    print(ll.head)
-    ll.insertAtBeginning(3)
-    ll.insertAtBeginning(12)
-    ll.print()
+    ll.insertAtBeginning(10)
+    ll.insertAtBeginning(9)
+    ll.insertAtEnd(2)
+    ll.display()
 
