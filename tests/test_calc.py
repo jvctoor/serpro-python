@@ -2,6 +2,7 @@ import unittest
 import problems.contadorVogais
 
 class TestCalc(unittest.TestCase):
+
     def test_contar_vogais(self):
         self.assertEqual(problems.contadorVogais.contarVogais("Joao"), 3)
         self.assertEqual(problems.contadorVogais.contarVogais("Elefante"), 4)
