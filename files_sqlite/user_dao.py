@@ -13,6 +13,13 @@ class userDAO:
         self.connection.commit()
         return User(result[1], result[2], result[3])
 
+    def getUserByCPF(self, cpf):
+        query = "SELECT * FROM user WHERE cpf = ?"
+        self.cursor.execute(query, (cpf,))
+        result = self.cursor.fetchone()
+        self.connection.commit()
+        return User(result[1], result[2], result[3])
+
     def insertUser(self, name, email, cpf):
         query = "INSERT INTO user(name, email, cpf) VALUES(?, ?, ?)"
         self.cursor.execute(query, (name, email, cpf))

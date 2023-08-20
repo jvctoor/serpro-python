@@ -5,12 +5,12 @@ from sql_queries import *
 databaseName = "databasev1"
 
 with sqlite3.connect(databaseName) as connection:
-    cursor = connection.cursor()
 
-    dao = userDAO(connection)
+    userdao = userDAO(connection)
 
-    print(dao.getUserById(1))
-    print(dao.insertUser("Gabriel", "gbressane@hotmail.com", "50196230838"))
+    print(userdao.getUserByCPF(50196230837))
+    #print(userdao.insertUser("Gabriel", "gbressane@hotmail.com", "50196230838"))
+    print(userdao.getUserById(2))
 
 
 
