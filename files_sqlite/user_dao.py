@@ -13,6 +13,11 @@ class userDAO:
         self.connection.commit()
         return User(result[1], result[2], result[3])
 
+    def getAllUsers(self):
+        query = "SELECT * FROM user;"
+        self.cursor.execute(query)
+        return self.cursor.fetchall()
+
     def getUserByCPF(self, cpf):
         query = "SELECT * FROM user WHERE cpf = ?"
         self.cursor.execute(query, (cpf,))
