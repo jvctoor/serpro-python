@@ -10,6 +10,8 @@ with sqlite3.connect(databaseName) as connection:
     dao = userDAO(connection)
 
     print(dao.getUserById(1))
+    print(dao.insertUser("Gabriel", "gbressane@hotmail.com", "50196230838"))
+
 
 
 
