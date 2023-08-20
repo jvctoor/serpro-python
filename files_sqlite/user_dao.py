@@ -28,6 +28,37 @@ class userDAO:
             self.connection.commit()
             return User(name, email, cpf)
 
+    def atualizarUserById(self, id, name, email, cpf):
+        query = "UPDATE user SET name = ?, email = ?, cpf = ? WHERE id = ?"
+        self.cursor.execute(query, (name, email, cpf, id))
+        result = self.cursor.rowcount
+        if result > 0:
+            self.connection.commit()
+            return User(name, email, cpf)
+
+    def atualizarUserByCPF(self, cpf, name, email):
+        query = "UPDATE user SET name = ?, email = ? WHERE cpf = ?"
+        self.cursor.execute(query, (name, email, cpf))
+        result = self.cursor.rowcount
+        if result > 0:
+            self.connection.commit()
+            return User(name, email, cpf)
+
+    def deleteUserById(self, id):
+        query = "DELETE FROM user WHERE id = ?"
+        self.cursor.execute(query, (id,))
+        result = self.cursor.rowcount
+        if result > 0:
+            self.connection.commit()
+            return True
+        else:
+            return False
+
+
+
+
+
+
 
 
 
