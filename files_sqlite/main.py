@@ -27,5 +27,6 @@ with sqlite3.connect(databaseName) as connection:
     userdao.insertUser("Larissa", "larissa@example.com", "34567890123")
     userdao.insertUser("Gabriel", "gabriel@example.com", "45678901235")
 
-    print(userdao.getAllUsers())
+    #print(userdao.getAllUsers())
+    print(userdao.getUserByCPF("34567890123"))
 
