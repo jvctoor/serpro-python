@@ -9,3 +9,8 @@ router = APIRouter()
 def getAllUsers():
     dao = userDAO(sqlite3.connect("db-homolog"))
     return dao.getAllUsers()
+
+@router.post("/users/")
+def postUser(data: dict):
+    dao = userDAO(sqlite3.connect("db-homolog"))
+    return dao.insertUser(data.get("name", None), data.get("email", None), data.get("cpf", None))

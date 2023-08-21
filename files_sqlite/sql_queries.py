@@ -2,7 +2,7 @@ create_table_user = """
     CREATE TABLE IF NOT EXISTS user(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         name VARCHAR(45) NOT NULL,
-        email VARCHAR(45) NOT NULL,
+        email VARCHAR(45) UNIQUE,
         cpf VARCHAR(11) NOT NULL
     );
     """

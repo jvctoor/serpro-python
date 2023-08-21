@@ -1,5 +1,12 @@
 
+
+
 class User:
+
+    name: str
+    email: str
+    cpf: str
+
     def __init__(self, name, email, cpf):
         self.name = name
         self.email = email
